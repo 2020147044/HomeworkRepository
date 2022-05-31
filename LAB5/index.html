@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Main Page</title>
+        <link rel = "stylesheet" type = "text/css"
+        href = "main.css">
+    </head>
+    <body>
+        <div class="centerbord">
+          <div class="center">
+            <h1 class="head movhead">Welcome to Our Online Shop</h1>
+        </div>
+        <div class="center navflex">
+            <a class="currentpage addborder">Main Page</a>
+            <a href="login.html" class="currentpage">Login</a>
+            <a href="signup.html" class="currentpage">Signup</a>
+                      <div class="hrcon">
+            <hr>
+          </div>
+        </div> 
+        <div class="center pageflex">
+            <div class="searchdiv">
+              <b>
+                <form action="product.json">
+                  <label for="category">Choose a category:</label>
+                  <select name="category" id="category">
+                    <option value="All">All</option>
+                    <option value="intel">Intel</option>
+                    <option value="amd">AMD</option>
+                    <option value="nvidia">Nvidia</option>
+                  </select>
+                </form>
+                <form action="product.json">
+                  Enter search term:
+                  <input type="text" placeholder="Enter keywords.." title="Type in a name">
+                </form>
+                  <button onclick="myFunction()">Try it</button>
+              </b>
+            </div>
+            <div class="divflex" id="box">
+              <div class="divbord">
+                <img class="img1" src = "product1.jpg" alt = "Intel_Core_i5" id="intel" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "product2.jpg" alt = "Intel_Core_i7" id="intel" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img1" src = "2080.png" alt = "RTX_2080" id="nvidia" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "corei9.jpg" alt = "Intel_Core_i9" id="intel" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "corei3.jpg" alt = "Intel_Core_i3" id="intel" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "ryzen7.jpg" alt = "Ryzen7" id="amd" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "ryzen5.jpg" alt = "Ryzen5" id="amd" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "2060.jpg" alt = "RTX_2060" id="nvidia" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "threadripper.jpg" alt = "Threadripper"  id="amd" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "2070.jpg" alt = "RTX_2070" id="nvidia" height = "150", 
+                width = "150" />
+              </div>
+              <div class="divbord">
+                <img class="img2" src = "ryzen3.png" alt = "Ryzen3" id="amd" height = "150", 
+                width = "150" />
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <script type="text/javascript">
+          async function getISS(){
+            const response = await fetch("product.json");
+            const data = await response.json();
+            console.log(data);
+
+          }
+
+          getISS();
+
+        </script>
+    </body>
+</html>
