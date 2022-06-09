@@ -57,6 +57,13 @@
             .then( json => initialize(json) )
             .catch( err => console.error(`Fetch problem: ${err.message}`) );
 
+            document.addEventListener('DOMContentLoaded', load);
+            window.onscroll = () => {
+              if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                load();
+              }
+            };
+
           function initialize(products) {
             const category = document.querySelector('#category');
             const searchTerm = document.querySelector('#searchTerm');
@@ -114,7 +121,7 @@
             }
 
             function updateDisplay() {
-
+              var ccounter
               while (main.firstChild) {
                 main.removeChild(main.firstChild);
               }
@@ -124,7 +131,13 @@
                 main.appendChild(para);
               } else {
                 for (const product of finalGroup) {
-                  fetchBlob(product);
+                  if (ccounter == 10) {
+                    break;
+                  }
+                  else {
+                    ccounter++;
+                    fetchBlob(product);
+                  }
                 }
               }
             }
@@ -151,8 +164,8 @@
               const image = document.createElement('img');
               divbord.setAttribute('class', "divbord");
               section.setAttribute('class', product.type);
-              image.setAttribute('width', "150");
-              image.setAttribute('height', "150");
+              image.setAttribute('width', "220");
+              image.setAttribute('height', "220");
               heading.textContent = product.name.replace(product.name.charAt(0), product.name.charAt(0).toUpperCase());
               para.textContent = `$${product.price.toFixed(2)}`;
 
@@ -164,6 +177,10 @@
               section.appendChild(heading);
               section.appendChild(para);
               section.appendChild(image);
+            }
+
+            function load() {
+              updateDisplay();
             }
           }
         </script>
