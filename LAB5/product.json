@@ -1,12 +1,12 @@
-[{ "name": "i5", "price":100, "info":"sampletext"},
-{ "name": "i7", "price":150, "info":"sampletext"},
-{ "name": "i3", "price":50, "info":"sampletext"},
-{ "name": "i9", "price":200, "info":"sampletext"},
-{ "name": "ryzen3", "price":50, "info":"sampletext"},
-{ "name": "ryzen5", "price":100, "info":"sampletext"},
-{ "name": "ryzen7", "price":150, "info":"sampletext"},
-{ "name": "threadripper", "price":1000, "info":"sampletext"},
-{ "name": "rtx2060", "price":300, "info":"sampletext"},
-{ "name": "rtx2070", "price":400, "info":"sampletext"},
-{ "name": "rtx2080", "price":800, "info":"sampletext"}]
+[{ "name": "i5", "price":100, "image": "product1.jpg", "type": "intel", "info":"sampletext"},
+{ "name": "i7", "price":150, "image": "product2.jpg", "type": "intel", "info":"sampletext"},
+{ "name": "i3", "price":50, "image": "corei3.jpg", "type": "intel", "info":"sampletext"},
+{ "name": "i9", "price":200, "image": "corei9.jpg", "type": "intel", "info":"sampletext"},
+{ "name": "ryzen3", "price":50, "image": "ryzen3.png", "type": "amd", "info":"sampletext"},
+{ "name": "ryzen5", "price":100, "image": "ryzen5.jpg", "type": "amd", "info":"sampletext"},
+{ "name": "ryzen7", "price":150, "image": "ryzen7.jpg", "type": "amd", "info":"sampletext"},
+{ "name": "threadripper", "price":1000, "image": "threadripper.jpg", "type": "amd", "info":"sampletext"},
+{ "name": "rtx2060", "price":300, "image": "2060.jpg", "type": "nvidia", "info":"sampletext"},
+{ "name": "rtx2070", "price":400, "image": "2070.jpg", "type": "nvidia", "info":"sampletext"},
+{ "name": "rtx2080", "price":800, "image": "2080.png", "type": "nvidia", "info":"sampletext"}]
 

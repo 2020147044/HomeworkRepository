@@ -31,56 +31,15 @@
                   </select>
                 </form>
                 <form action="product.json">
-                  Enter search term:
-                  <input type="text" placeholder="Enter keywords.." title="Type in a name">
+                  <label for="searchTerm">Enter search term:</label>
+                  <input type="text" id="searchTerm" placeholder="e.g. Intel">
                 </form>
-                  <button onclick="myFunction()">Filter results</button>
+                  <button>Filter results</button>
               </b>
             </div>
             <div class="divflex" id="box">
-              <div class="divbord">
-                <img class="img1" src = "product1.jpg" alt = "Intel_Core_i5" id="intel" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "product2.jpg" alt = "Intel_Core_i7" id="intel" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img1" src = "2080.png" alt = "RTX_2080" id="nvidia" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "corei9.jpg" alt = "Intel_Core_i9" id="intel" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "corei3.jpg" alt = "Intel_Core_i3" id="intel" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "ryzen7.jpg" alt = "Ryzen7" id="amd" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "ryzen5.jpg" alt = "Ryzen5" id="amd" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "2060.jpg" alt = "RTX_2060" id="nvidia" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "threadripper.jpg" alt = "Threadripper"  id="amd" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "2070.jpg" alt = "RTX_2070" id="nvidia" height = "150", 
-                width = "150" />
-              </div>
-              <div class="divbord">
-                <img class="img2" src = "ryzen3.png" alt = "Ryzen3" id="amd" height = "150", 
-                width = "150" />
+              <main>
+              </main>
               </div>
             </div>
           </div>
@@ -88,6 +47,120 @@
         </div>
 
         <script type="text/javascript">
+          fetch('product.json')
+            .then( response => {
+              if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then( json => initialize(json) )
+            .catch( err => console.error(`Fetch problem: ${err.message}`) );
+
+          function initialize(products) {
+            const category = document.querySelector('#category');
+            const searchTerm = document.querySelector('#searchTerm');
+            const searchBtn = document.querySelector('button');
+            const main = document.querySelector('main');
+
+            let lastCategory = category.value;
+            let lastSearch = '';
+
+            let categoryGroup;
+            let finalGroup;
+
+            finalGroup = products;
+            updateDisplay();
+
+            categoryGroup = [];
+            finalGroup = [];
+
+            searchBtn.addEventListener('click', selectCategory);
+
+            function selectCategory(e) {
+
+              e.preventDefault();
+
+              categoryGroup = [];
+              finalGroup = [];
+
+              if (category.value === lastCategory && searchTerm.value.trim() === lastSearch) {
+                return;
+              } else {
+
+                lastCategory = category.value;
+                lastSearch = searchTerm.value.trim();
+                if (category.value === 'All') {
+                  categoryGroup = products;
+                  selectProducts();
+                } else {
+                  const lowerCaseType = category.value.toLowerCase();
+                  categoryGroup = products.filter( product => product.type === lowerCaseType );
+
+                  selectProducts();
+                }
+              }
+            }
+
+            function selectProducts() {
+
+              if (searchTerm.value.trim() === '') {
+                finalGroup = categoryGroup;
+              } else {
+                const lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
+                finalGroup = categoryGroup.filter( product => product.name.includes(lowerCaseSearchTerm));
+              }
+              updateDisplay();
+            }
+
+            function updateDisplay() {
+
+              while (main.firstChild) {
+                main.removeChild(main.firstChild);
+              }
+              if (finalGroup.length === 0) {
+                const para = document.createElement('p');
+                para.textContent = 'No results to display!';
+                main.appendChild(para);
+              } else {
+                for (const product of finalGroup) {
+                  fetchBlob(product);
+                }
+              }
+            }
+
+            function fetchBlob(product) {
+              const url = `images/${product.image}`;
+              fetch(url)
+                .then( response => {
+                  if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                  }
+                  return response.blob();
+                })
+                .then( blob => showProduct(blob, product) )
+                .catch( err => console.error(`Fetch problem: ${err.message}`) );
+            }
+
+            function showProduct(blob, product) {
+              const objectURL = URL.createObjectURL(blob);
+              const section = document.createElement('section');
+              const heading = document.createElement('h2');
+              const para = document.createElement('p');
+              const image = document.createElement('img');
+              section.setAttribute('class', product.type);
+              heading.textContent = product.name.replace(product.name.charAt(0), product.name.charAt(0).toUpperCase());
+              para.textContent = `$${product.price.toFixed(2)}`;
+
+              image.src = objectURL;
+              image.alt = product.name;
+
+              main.appendChild(section);
+              section.appendChild(heading);
+              section.appendChild(para);
+              section.appendChild(image);
+            }
+          }
         </script>
     </body>
 </html>
