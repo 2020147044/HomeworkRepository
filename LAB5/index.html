@@ -57,14 +57,8 @@
             .then( json => initialize(json) )
             .catch( err => console.error(`Fetch problem: ${err.message}`) );
 
-            document.addEventListener('DOMContentLoaded', load);
-            window.onscroll = () => {
-              if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                load();
-              }
-            };
-
           function initialize(products) {
+            
             const category = document.querySelector('#category');
             const searchTerm = document.querySelector('#searchTerm');
             const searchBtn = document.querySelector('button');
@@ -178,6 +172,13 @@
               section.appendChild(para);
               section.appendChild(image);
             }
+
+            document.addEventListener('DOMContentLoaded', load);
+            window.onscroll = () => {
+              if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                load();
+              }
+            };
 
             function load() {
               var ccounter = 0;

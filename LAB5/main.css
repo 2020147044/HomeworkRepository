@@ -156,7 +156,9 @@ p {
 }
 
 img {
-    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .img2:hover {
