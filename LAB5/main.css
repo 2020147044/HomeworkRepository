@@ -184,6 +184,7 @@ img {
 h2 {
     font-size: 2rem;
     color: black;
+    box-shadow: 2px 2px 1px yellow;
     text-align: right;
     width: 160px;
     position: absolute;
@@ -191,6 +192,7 @@ h2 {
     z-index: 3000;
     line-height: 2rem;
     padding-top: 0.3rem;
+    font-size: 10px;
   }
 
 
@@ -215,7 +217,7 @@ section p {
     height: 50px;
     line-height: 50px;
     text-align: center;
-    font-size: 2px;
+    font-size: 10px;
     border-radius: 50%;
     box-shadow: 2px 2px 1px yellow;
     position: absolute;
