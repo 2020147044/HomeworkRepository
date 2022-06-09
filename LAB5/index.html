@@ -182,11 +182,6 @@
 
             function load() {
               var ccounter = 0;
-              if (finalGroup.length === 0) {
-                const para = document.createElement('p');
-                para.textContent = 'No results to display!';
-                main.appendChild(para);
-              } else {
                 for (const product of finalGroup) {
                   if (ccounter == 6) {
                     break;
@@ -196,7 +191,6 @@
                     fetchBlob(product);
                   }
                 }
-              }
             }
           }
         </script>
