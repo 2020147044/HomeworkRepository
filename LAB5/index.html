@@ -47,6 +47,16 @@
         </div>
 
         <script type="text/javascript">
+
+          function toggleText() {
+            var text = document.getElementsByClassName("clickInfo");
+            if (text.style.display === "none") {
+              text.style.display = "block";
+            } else {
+              text.style.display = "none";
+            }
+          }
+
           fetch('product.json')
             .then( response => {
               if (!response.ok) {
@@ -76,7 +86,6 @@
             categoryGroup = [];
             finalGroup = [];
 
-            selectCategory;
             searchBtn.addEventListener('click', selectCategory);
 
             function selectCategory(e) {
@@ -153,12 +162,16 @@
               const heading = document.createElement('h2');
               const para = document.createElement('p');
               const image = document.createElement('img');
+              const plashka = document.createElement('h3');
+              plashka.setAttribute('class', "plashka");
               divbord.setAttribute('class', "divbord");
               section.setAttribute('class', product.type);
               image.setAttribute('width', "220");
               image.setAttribute('height', "220");
               heading.textContent = product.name.replace(product.name.charAt(0), product.name.charAt(0).toUpperCase());
               para.textContent = `$${product.price.toFixed(2)}`;
+              heading.setAttribute('class', "clickInfo");
+              para.setAttribute('class', "clickInfo");
 
               image.src = objectURL;
               image.alt = product.name;
@@ -167,6 +180,7 @@
               divbord.appendChild(section);
               section.appendChild(heading);
               section.appendChild(para);
+              section.appendChild(plashka);
               section.appendChild(image);
             }
 
