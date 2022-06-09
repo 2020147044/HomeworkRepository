@@ -149,6 +149,8 @@
               const para = document.createElement('p');
               const image = document.createElement('img');
               section.setAttribute('class', product.type);
+              image.setAttribute('width', "150");
+              image.setAttribute('height', "150");
               heading.textContent = product.name.replace(product.name.charAt(0), product.name.charAt(0).toUpperCase());
               para.textContent = `$${product.price.toFixed(2)}`;
 
