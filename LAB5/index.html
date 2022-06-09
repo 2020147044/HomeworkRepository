@@ -76,7 +76,6 @@
             categoryGroup = [];
             finalGroup = [];
 
-            
             document.addEventListener('DOMContentLoaded', selectCategory);
             searchBtn.addEventListener('click', selectCategory);
 
@@ -87,11 +86,7 @@
               categoryGroup = [];
               finalGroup = [];
 
-              if (category.value === lastCategory && searchTerm.value.trim() === lastSearch) {
-                return;
-              } else {
-
-                lastCategory = category.value;
+              lastCategory = category.value;
                 lastSearch = searchTerm.value.trim();
                 if (category.value === 'All') {
                   categoryGroup = products;
@@ -102,7 +97,7 @@
 
                   selectProducts();
                 }
-              }
+
             }
 
             function selectProducts() {
