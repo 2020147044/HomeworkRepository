@@ -49,12 +49,16 @@
         <script type="text/javascript">
 
           function toggleText(event) {
-            var text = event.target;
-            if (text.style.display == "none") {
-              text.style.display = "block";
+            var parent = event.target.parentNode;
+            var text = parent.getElementsByClassName("clickInfo");
+            for (var i = 0; i < text.length; i++) {
+              if (text[i].style.display == "none") {
+              text[i].style.display = "block";
             } else {
-              text.style.display = "none";
+              text[i].style.display = "none";
             }
+             }
+            
           };
 
           fetch('product.json')
