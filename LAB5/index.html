@@ -76,14 +76,8 @@
             categoryGroup = [];
             finalGroup = [];
 
-            window.addEventListener('scroll',()=>{
-                if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight)
-                {
-                  selectCategory();
-                  load(); 
-                }
-            })
-
+            
+            document.addEventListener('DOMContentLoaded', selectCategory);
             searchBtn.addEventListener('click', selectCategory);
 
             function selectCategory(e) {
@@ -180,6 +174,12 @@
               section.appendChild(para);
               section.appendChild(image);
             }
+
+            window.onscroll = () => {
+              if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                load();
+              }
+            };
 
             function load() {
               var ccounter = 0;
