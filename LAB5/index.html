@@ -144,10 +144,12 @@
 
             function showProduct(blob, product) {
               const objectURL = URL.createObjectURL(blob);
+              const divbord = document.createElement('div');
               const section = document.createElement('section');
               const heading = document.createElement('h2');
               const para = document.createElement('p');
               const image = document.createElement('img');
+              divbord.setAttribute('class', "divbord");
               section.setAttribute('class', product.type);
               image.setAttribute('width', "150");
               image.setAttribute('height', "150");
@@ -157,7 +159,8 @@
               image.src = objectURL;
               image.alt = product.name;
 
-              main.appendChild(section);
+              main.appendChild(divbord);
+              divbord.appendChild(section);
               section.appendChild(heading);
               section.appendChild(para);
               section.appendChild(image);
