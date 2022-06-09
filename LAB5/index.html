@@ -50,7 +50,7 @@
 
           function toggleText() {
             var text = document.getElementsByClassName("clickInfo");
-            if (text.style.display === "none") {
+            if (text.style.display == "none") {
               text.style.display = "block";
             } else {
               text.style.display = "none";
@@ -165,7 +165,7 @@
               const plashka = document.createElement('h3');
               plashka.setAttribute('class', "plashka");
               divbord.setAttribute('class', "divbord");
-              divbord.setAttribute('onclick', "toggleText()");
+              plashka.setAttribute('onclick', "toggleText()");
               section.setAttribute('class', product.type);
               image.setAttribute('width', "220");
               image.setAttribute('height', "220");

@@ -202,8 +202,8 @@ h2 {
 section {
     width: 45%;
     margin: 5px;
-    width: 310px;
-    height: 320px;
+    width: 300px;
+    height: 300px;
     position: relative;
     height: 215px;
 }
@@ -224,13 +224,13 @@ section p {
 }
 
 .clickInfo{
-    display: block;
+    display: none;
 }
 
 .plashka {
     color: black;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 80px;
     text-align: center;
     font-size: 18px;
     margin: 0;
