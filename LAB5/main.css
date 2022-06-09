@@ -148,6 +148,7 @@ p {
     float: left;
     width: 310px;
     height: 320px;
+    position: relative;
 }
 
 .img1:hover {
@@ -201,6 +202,8 @@ h2 {
 section {
     width: 45%;
     margin: 5px;
+    width: 310px;
+    height: 320px;
     position: relative;
     height: 215px;
 }
@@ -229,7 +232,7 @@ section p {
     width: 100px;
     height: 100px;
     text-align: center;
-    font-size: 10px;
+    font-size: 18px;
     margin: 0;
     padding: 0;
     background-color: lightskyblue;
