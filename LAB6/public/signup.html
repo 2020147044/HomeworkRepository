@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign-up page</title>
+        <link rel = "stylesheet" type = "text/css"
+        href = "main.css">
+    </head>
+    <body>
+        <h1>Welcome to INTERNET-PROGRAMMING SHOP</h1>
+        <div id="outer">
+            <a href="index.html" class="currentpage">Main Page</a>
+            <a href="login.html" class="currentpage">Login</a>
+            <a class="currentpage addborder">Signup</a>
+        </div> 
+        <hr>
+        <p>Personal information (required)</p>
+        <p>
+            <label> Full name: </label><input type="text" name="fullname" id= "fullname" placeholder = "Enter your full name" autofocus required/> 
+        </p>
+        <p>
+            <label> Birth date: </label><input type="date" name="date" id= "date" required /> (yyyy-mm-dd)
+        </p>
+        <p>
+            <label> Grade: </label><input type="number" name="grade" id= "grade" min="1" max="4" step="1" value="1" required />
+        </p>
+        <p>
+            <label> Phone number: </label><input type = "tel" id="tel" placeholder = "(###) ###-####" pattern = "\(\d{3}\) \d{3}-\d{4}" required />
+        </p>
+        <p>
+            <label> E-mail: </label><input name = "email" type = "email" id="email" placeholder = "name@domain.com" required />
+        </p>
+        <p>
+            <label> User ID: </label><input type="text" name="id" id= "userid" placeholder = "Enter your user ID" required/>
+        </p>
+        <p>
+            <label> Password: </label><input type="Password" id="pass" name="pass" id= "password" placeholder="Enter your password" required/>
+        </p>
+        <p>
+            <label> Confirm password: </label><input type="Password" id="repass" name="repass" placeholder="Repeat your password" required/>
+        </p>
+        <p>
+            <div id="outer">
+                <a href="login.html"><input type="submit" value="Submit"></a>
+                <a href="login.html"><button type="button" id="cancel">Cancel</button></a>
+            </div>
+        </p>
+        <hr>
+    </body>
+</html>
