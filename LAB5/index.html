@@ -180,7 +180,14 @@
             }
 
             function load() {
-              updateDisplay();
+              for (const product of finalGroup) {
+                   if (ccounter == 10) {
+                     break; }
+                  else {
+                    ccounter++;
+                    fetchBlob(product);
+                  }
+                }
             }
           }
         </script>
