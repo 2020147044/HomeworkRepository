@@ -189,7 +189,8 @@ h2 {
     text-align: right;
     width: 160px;
     position: absolute;
-    right: 4%;
+    top: 0px;
+    right: 0px;
     z-index: 3000;
     text-shadow: 2px 2px 1px black;
     line-height: 2rem;
@@ -215,9 +216,8 @@ section p {
     border-radius: 50%;
     box-shadow: 2px 2px 1px yellow;
     position: absolute;
-    right: 10px;
-    bottom: -6px;
-    z-index: 2000;
+    bottom: 0px;
+    right: 0px;
 }
 
 .clickInfo{
@@ -226,8 +226,8 @@ section p {
 
 .plashka {
     color: black;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     text-align: center;
     font-size: 10px;
     margin: 0;

@@ -55,7 +55,7 @@
             } else {
               text.style.display = "none";
             }
-          }
+          };
 
           fetch('product.json')
             .then( response => {
@@ -165,11 +165,13 @@
               const plashka = document.createElement('h3');
               plashka.setAttribute('class', "plashka");
               divbord.setAttribute('class', "divbord");
+              divbord.setAttribute(onclick, "toggleText()");
               section.setAttribute('class', product.type);
               image.setAttribute('width', "220");
               image.setAttribute('height', "220");
               heading.textContent = product.name.replace(product.name.charAt(0), product.name.charAt(0).toUpperCase());
               para.textContent = `$${product.price.toFixed(2)}`;
+              plashka.textContent = "Click to see more info";
               heading.setAttribute('class', "clickInfo");
               para.setAttribute('class', "clickInfo");
 
