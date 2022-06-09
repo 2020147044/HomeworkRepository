@@ -181,10 +181,6 @@ img {
     animation-direction: alternate;
 }
 
-p, label, input, select, button, li {
-    font-size: 1.5rem;
-  }
-
 h2 {
     font-size: 2rem;
     color: yellow;
